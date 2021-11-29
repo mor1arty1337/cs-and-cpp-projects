@@ -21,14 +21,14 @@ struct building
 const char* fname1 = "test1.dat";
 int main()
 {
-	/*1.Напишите программу, работающую со всеми четырьмя стандартными объектами iostream.
+	/*1*/
 	int i = 0;
 	cout << "Enter a number: ";
 	cin >> i;
-	cerr << "test for cerr" << endl;//вывод сообщения об ошибке
-	clog << "test for clog" << endl;//вывод логов
+	cerr << "test for cerr" << endl;
+	clog << "test for clog" << endl;
 	/*-----------------------------------------------------------------------------------*/
-	/*2.Напишите программу, предлагающую пользователю ввести  с клавиатуры его фамилию, имя и отчество как единое целое, а затем выводящую их на экран.
+	/*2*/
 	string name;
 	cout << "Enter your first name and second name like that: MatthewLebedievas \n";
 	cin >> name;
@@ -40,12 +40,11 @@ int main()
 		}
 	}
 	cout << name;
-	*/
-	/*3.Напишите программу, выполняющую различные вычисления и  выводящую  значений с применение методов форматирования, манипуляторов и флагов объекта cout.
+	/*3*/
 	cout << setiosflags(ios::fixed);
 	cout << setprecision(2) << 1000.243 << endl;
 	cout << setw(20) << "Hello there.";
-	/*4.Используя один из ранее разработанных классов (Worker, Student … ), создайте в программе список объектов путем ввода данных с клавиатуры и рапечатайте его на экране в виде таблицы
+	/*4*/
 	student st1;
 	student st2;
 	st1.name = "Alex";
@@ -64,7 +63,7 @@ int main()
 	cout << st1.name << "\t " << st1.age << "\t " << st1.gender << "\t\t " << st1.grant << "\n";
 	cout << st2.name << "\t " << st2.age << "\t " << st2.gender << "\t\t " << st2.grant << "\n";
 	*/
-	/*5.Напишите программу, предлагающую пользователю ввести его фамилию, имя и отчество , а затем выводящую эти сведения в текстовый файл.
+	/*5*/
 	ofstream f;
 	f.open("ld.txt");
 	string first_name, second_name;
@@ -72,7 +71,7 @@ int main()
 	cin >> first_name >> second_name;
 	f << first_name << " " << second_name;
 	f.close();*/
-	/*6.Напишите программу в которой ФИО вводятся из текстового файла и затем выводятся на экран.
+	/*6*/
 	string a;
 	ifstream f;
 	f.open("ld.txt");
@@ -82,7 +81,7 @@ int main()
 	}
 	cout << a;
 	f.close();*/
-	/*7.Запись элементов стека в бинарный файл
+	/*7*/
 	building bg1, bg2;
 	strcpy_s(bg1.name, "Lenin");
 	strcpy_s(bg1.city, "Magadan");
