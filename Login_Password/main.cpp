@@ -10,7 +10,7 @@ bool IsRegistered()
     cin >> username;
     cout << "Enter password: " << endl;
     cin >> password;
-    ifstream read("d:\\Coding\\C++\\Login_Password\\AllUsers" + username + ".txt");
+    ifstream read("d:\\Coding\\C++\\Login_Password\\AllUsers\\User_" + username + ".txt");
     getline(read, un);
     getline(read, pw);
     if (un == username && pw == password)
@@ -34,10 +34,11 @@ int main()
         cout << "Create password:" << endl;
         cin >> password;
         ofstream file;
-        file.open("d:\\Coding\\C++\\Login_Password\\AllUsers" + username + ".txt");
+        file.open("d:\\Coding\\C++\\Login_Password\\AllUsers\\User_" + username + ".txt");
         file << username << endl;
         file << password << endl;
         file.close();
+        cout << "You successfully registered" << endl;
     }
     else if (choise == 2)
     {
