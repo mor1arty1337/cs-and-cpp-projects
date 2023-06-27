@@ -47,13 +47,14 @@ void PasswordChange()
 {
     cout << "To confirm changes enter your data again" << endl;
     string username, oldpassword, newpassword, un, pw;
-    cout << "Confirm username:" << endl;
+    cout << "Confirm username" << endl;
     cin >> username;
-    cout << "Confirm password:" << endl;
+    cout << "Confirm password" << endl;
     cin >> oldpassword;
     ifstream read("d:\\Coding\\C++\\Login_Password\\AllUsers\\User_" + username + ".txt");
     getline(read, un);
     getline(read, pw);
+    read.close();
     if (un == username && pw == oldpassword)
     {
         cout << "Enter your new password" << endl;
@@ -69,6 +70,67 @@ void PasswordChange()
     else
         cout << "Something went wrong" << endl;
 }
+
+void UsernameChange()
+{
+    cout << "To confirm changes enter your data again" << endl;
+    string oldusername, newusername, password, un, pw;
+    cout << "Confirm username" << endl;
+    cin >> oldusername;
+    cout << "Confirm password" << endl;
+    cin >> password;
+    ifstream read("d:\\Coding\\C++\\Login_Password\\AllUsers\\User_" + oldusername + ".txt");
+    getline(read, un);
+    getline(read, pw);
+    read.close();
+    if (un == oldusername && pw == password)
+    {
+        cout << "Enter your new password" << endl;
+        cin >> newusername;
+        string path = "d:\\Coding\\C++\\Login_Password\\AllUsers\\User_" + oldusername + ".txt";
+        remove(path.c_str());
+        ofstream file;
+        file.open("d:\\Coding\\C++\\Login_Password\\AllUsers\\User_" + newusername + ".txt");
+        file << newusername << endl;
+        file << password << endl;
+        cout << "New username set" << endl;
+    }
+    else
+        cout << "Something went wrong" << endl;
+}
+
+void ChangAll()
+{
+    cout << "To confirm changes enter your data again" << endl;
+    string oldusername, newusername, oldpassword, newpassword, un, pw;
+    cout << "Confirm username" << endl;
+    cin >> oldusername;
+    cout << "Confirm password" << endl;
+    cin >> oldpassword;
+    ifstream read("d:\\Coding\\C++\\Login_Password\\AllUsers\\User_" + oldusername + ".txt");
+    getline(read, un);
+    getline(read, pw);
+    read.close();
+    if (un == oldusername && pw == oldpassword)
+    {
+        cout << "Enter your new username" << endl;
+        cin >> newusername;
+        cout << "Enter your new password" << endl;
+        cin >> newpassword;
+        string path = "d:\\Coding\\C++\\Login_Password\\AllUsers\\User_" + oldusername + ".txt";
+        remove(path.c_str());
+        ofstream file;
+        file.open("d:\\Coding\\C++\\Login_Password\\AllUsers\\User_" + newusername + ".txt");
+        file << newusername << endl;
+        file << newpassword << endl;
+        cout << "Data changed" << endl;
+    }
+    else
+    {
+        cout << "Something went wrong" << endl;
+    }
+}
+
 int main()
 {
     int choise;
@@ -110,10 +172,20 @@ int main()
     if (loggedin == true)
     {
         printf("Enter 1 to change your password\n");
+        printf("Enter 2 to change your username\n");
+        printf("Enter 3 to change your username and password\n");
         cin >> choise;
         if (choise == 1)
         {
             PasswordChange();
+        }
+        else if (choise == 2)
+        {
+            UsernameChange();
+        }
+        else if (choise == 3)
+        {
+            ChangAll();
         }
     }
     return 1;
